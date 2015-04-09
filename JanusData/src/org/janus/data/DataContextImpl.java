@@ -1,5 +1,7 @@
 package org.janus.data;
 
+import java.io.Serializable;
+
 import org.apache.log4j.Logger;
 import org.janus.helper.DebugAssistent;
 
@@ -24,7 +26,7 @@ public class DataContextImpl implements DataContext {
 	/**
 	 * Die aktuellen Datenwerte der Felder eines DataModel
 	 */
-	private Object[] current;
+	private Serializable[] current;
 
 	/**
 	 * Das DataModel für die Datenwerte.
@@ -51,7 +53,7 @@ public class DataContextImpl implements DataContext {
 													// geändert werden
 		}
 		int l = model.getSize();
-		current = new Object[l];
+		current = new Serializable[l];
 	}
 
 	@Override
@@ -65,7 +67,7 @@ public class DataContextImpl implements DataContext {
 	 * @see test.janus.data.DataContext#getObject(int)
 	 */
 	@Override
-	public Object getObject(int i) {
+	public Serializable getObject(int i) {
 		return current[i];
 	}
 
@@ -75,7 +77,7 @@ public class DataContextImpl implements DataContext {
 	 * @see test.janus.data.DataContext#setObject(int, java.lang.Object)
 	 */
 	@Override
-	public void setObject(int i, Object value) {
+	public void setObject(int i, Serializable value) {
 		current[i] = value;
 	}
 
@@ -86,7 +88,7 @@ public class DataContextImpl implements DataContext {
 	 * 
 	 */
 
-	public void setObjects(int indexes[], Object values[]) {
+	public void setObjects(int indexes[], Serializable values[]) {
 		if (indexes.length != values.length) {
 			throw new RuntimeException(
 					"index and value Array has different length");

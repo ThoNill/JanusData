@@ -1,5 +1,7 @@
 package org.janus.data;
 
+import java.io.Serializable;
+
 import org.apache.log4j.Logger;
 
 public interface DataContext {
@@ -15,7 +17,7 @@ public interface DataContext {
 	 *         Lizenz GPLv3
 	 * 
 	 */
-	Object getObject(int i);
+	Serializable getObject(int i);
 
 	/**
 	 * 
@@ -24,7 +26,7 @@ public interface DataContext {
 	 * @see DataDescription
 	 * 
 	 */
-	void setObject(int i, Object value);
+	void setObject(int i, Serializable value);
 
 	void debug(Logger log);
 

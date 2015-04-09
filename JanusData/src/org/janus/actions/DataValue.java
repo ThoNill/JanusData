@@ -1,5 +1,7 @@
 package org.janus.actions;
 
+import java.io.Serializable;
+
 import org.janus.data.DataContext;
 import org.janus.data.DataDescription;
 
@@ -13,8 +15,8 @@ public interface DataValue {
 
 	void configure(DataDescription description);
 
-	void setObject(DataContext ctx, Object value);
+	void setObject(DataContext ctx, Serializable value);
 
-	Object getObject(DataContext ctx);
+	Serializable getObject(DataContext ctx);
 
 }

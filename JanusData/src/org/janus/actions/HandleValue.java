@@ -1,10 +1,12 @@
 package org.janus.actions;
 
+import java.io.Serializable;
+
 import org.janus.data.DataContext;
 import org.janus.data.DataDescription;
 import org.janus.helper.DebugAssistent;
 
-public class HandleValue implements DataValue, Action {
+public class HandleValue implements DataValue, Action, Serializable{
 	private int index = -1;
 	private String name;
 	private DataType type;
@@ -44,7 +46,7 @@ public class HandleValue implements DataValue, Action {
 	}
 
 	@Override
-	public void setObject(DataContext ctx, Object value) {
+	public void setObject(DataContext ctx, Serializable value) {
 		DebugAssistent.doNullCheck(ctx);
 
 		configure(ctx.getDataDescription());
@@ -52,7 +54,7 @@ public class HandleValue implements DataValue, Action {
 	}
 
 	@Override
-	public Object getObject(DataContext ctx) {
+	public Serializable getObject(DataContext ctx) {
 		DebugAssistent.doNullCheck(ctx);
 
 		if (index < 0) {

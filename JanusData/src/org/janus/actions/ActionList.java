@@ -42,7 +42,7 @@ public class ActionList extends Vector<Action> implements Action {
 			action.perform(context);
 		}
 	}
-
+	
 	public ActionList addAction(Action action) {
 		DebugAssistent.doNullCheck(action);
 

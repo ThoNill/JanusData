@@ -1,5 +1,6 @@
 package org.janus.actions;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class BigDecimalType extends GeneralDataType {
@@ -10,7 +11,7 @@ public class BigDecimalType extends GeneralDataType {
 	}
 
 	@Override
-	public Object createInitialization() {
+	public Serializable createInitialization() {
 		return BigDecimal.ZERO;
 	}
 

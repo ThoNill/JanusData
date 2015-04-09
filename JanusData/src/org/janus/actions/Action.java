@@ -23,4 +23,5 @@ public interface Action extends Configurable {
 	 * @param context
 	 */
 	void perform(DataContext context);
+
 }

@@ -1,5 +1,6 @@
 package org.janus.actions;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -37,7 +38,7 @@ public class GeneralDataType extends Object implements DataType {
 	}
 
 	@Override
-	public Object createInitialization() {
+	public Serializable createInitialization() {
 		return null;
 	}
 

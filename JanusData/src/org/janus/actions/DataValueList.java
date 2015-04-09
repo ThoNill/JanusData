@@ -1,6 +1,7 @@
 package org.janus.actions;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.io.Writer;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,7 +56,7 @@ public class DataValueList extends Vector<DataValue> implements Configurable {
 
 		int index = 1;
 		for (DataValue d : this) {
-			Object obj = result.getObject(index);
+			Serializable obj = (Serializable)result.getObject(index);
 			d.setObject(ctx, obj);
 			index++;
 		}
