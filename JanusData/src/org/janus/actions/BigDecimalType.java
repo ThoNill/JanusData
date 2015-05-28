@@ -3,7 +3,9 @@ package org.janus.actions;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class BigDecimalType extends GeneralDataType {
+import org.janus.single.ObjectCreator;
+
+public class BigDecimalType implements ObjectCreator {
 
 	public static BigDecimalType decimal = new BigDecimalType();
 
@@ -11,7 +13,7 @@ public class BigDecimalType extends GeneralDataType {
 	}
 
 	@Override
-	public Serializable createInitialization() {
+	public Serializable create() {
 		return BigDecimal.ZERO;
 	}
 

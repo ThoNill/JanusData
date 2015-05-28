@@ -1,22 +1,15 @@
 package org.janus.actions;
 
-import java.io.Serializable;
+import org.janus.data.Configurable;
+import org.janus.single.ObjectCreator;
 
-import org.janus.data.DataContext;
-import org.janus.data.DataDescription;
+public interface DataValue extends ReadValue, WriteValue, Configurable{
 
-public interface DataValue {
+//	ObjectCreator getCreator();
+//	void setCreator(ObjectCreator type);
+	
 
-	DataType getType();
-
-	DataValue setType(DataType type);
-
-	String getName();
-
-	void configure(DataDescription description);
-
-	void setObject(DataContext ctx, Serializable value);
-
-	Serializable getObject(DataContext ctx);
+	DataFormat getFormat();
+	void  setFormat(DataFormat format);
 
 }

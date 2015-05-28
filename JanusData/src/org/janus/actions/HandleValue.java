@@ -6,32 +6,22 @@ import org.janus.data.DataContext;
 import org.janus.data.DataDescription;
 import org.janus.helper.DebugAssistent;
 
-public class HandleValue implements DataValue, Action, Serializable{
-	private int index = -1;
-	private String name;
-	private DataType type;
+public class HandleValue extends ReferenzToValue {
 
+	private String name;
+	int index;
+	
 	public HandleValue(String name) {
-		super();
+		this(name,null);
+	}
+	
+	public HandleValue(String name,Object obj) {
+		super(null,obj);
 		DebugAssistent.doNullCheck(name);
 		this.name = name;
-		setType(GeneralDataType.general);
 	}
-
-	@Override
-	public DataType getType() {
-		return type;
-	}
-
-	@Override
-	public DataValue setType(DataType type) {
-		DebugAssistent.doNullCheck(type);
-
-		this.type = type;
-		return this;
-	}
-
-	@Override
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -39,35 +29,24 @@ public class HandleValue implements DataValue, Action, Serializable{
 	@Override
 	public void configure(DataDescription description) {
 		DebugAssistent.doNullCheck(description);
+		index = description.getHandle(name);
+	}
 
-		if (index < 0) {
-			index = description.getHandle(name);
+	public void setObject(DataContext ctx, Serializable v) {
+		if (getValue() != null) {
+			super.setObject(ctx, v);
+		} else {
+			ctx.setObject(index, v);
 		}
 	}
-
-	@Override
-	public void setObject(DataContext ctx, Serializable value) {
-		DebugAssistent.doNullCheck(ctx);
-
-		configure(ctx.getDataDescription());
-		ctx.setObject(index, value);
-	}
-
-	@Override
+	
 	public Serializable getObject(DataContext ctx) {
-		DebugAssistent.doNullCheck(ctx);
-
-		if (index < 0) {
-			configure(ctx.getDataDescription());
+		if (getValue() != null) {
+			return super.getObject(ctx);
+		} else {
+			return ctx.getObject(index);
 		}
-		return ctx.getObject(index);
 	}
 
-	@Override
-	public void perform(DataContext context) {
-		DebugAssistent.doNullCheck(context);
-
-		setObject(context, type.createInitialization());
-	}
 
 }

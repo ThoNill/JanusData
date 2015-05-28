@@ -1,6 +1,10 @@
 package org.janus.data;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 import org.apache.log4j.Logger;
 import org.janus.helper.DebugAssistent;
@@ -59,5 +63,25 @@ public interface ClassFactory {
 		}
 		return null;
 	}
+	/*
+	 * Erzeugt und prüft eine Instanz einer Klasse
+	 */
+	default Object createAndCheckInstance(String classname, Class checkClass) {
+		Object o = getInstance(classname);
+		if (!checkClass.isInstance(o)) {
+			logger.fatal("class [" + classname + "] is not of Type "
+					+ checkClass.getName());
+			return null;
+		}
+		return o;
+	}
+	/*
+	 * Holt einen Reader aus den Resourcen
+	 */
+	default public Reader getReader(String resname) {
+		return new BufferedReader(new InputStreamReader(getResource(resname)));
+	}
+
+
 
 }

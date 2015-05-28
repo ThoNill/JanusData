@@ -1,24 +1,23 @@
 package org.janus.actions;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class GeneralDataType extends Object implements DataType {
+public class GeneralDataFormat  implements DataFormat {
 	DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM,
 			Locale.GERMANY);
 	NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
 
-	public static final GeneralDataType general = new GeneralDataType();
+	public static final GeneralDataFormat general = new GeneralDataFormat();
 
-	public GeneralDataType() {
+	GeneralDataFormat() {
 	}
 
 	@Override
-	public String convert2String(Object obj) {
+	public String format(Object obj) {
 		if (obj == null) {
 			return "";
 		}
@@ -37,9 +36,6 @@ public class GeneralDataType extends Object implements DataType {
 		return text;
 	}
 
-	@Override
-	public Serializable createInitialization() {
-		return null;
-	}
+
 
 }

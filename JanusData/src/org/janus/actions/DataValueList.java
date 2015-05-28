@@ -44,7 +44,7 @@ public class DataValueList extends Vector<DataValue> implements Configurable {
 
 		for (DataValue d : this) {
 			Object obj = d.getObject(ctx);
-			String ausgabe = d.getType().convert2String(obj);
+			String ausgabe = d.getFormat().format(obj);
 			writer.write(trenner);
 			writer.write(ausgabe);
 		}

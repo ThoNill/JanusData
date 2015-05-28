@@ -31,5 +31,9 @@ public interface DataContext {
 	void debug(Logger log);
 
 	DataDescription getDataDescription();
+	
+	default int getHandle(String name) {
+		return getDataDescription().getHandle(name);
+	}
 
 }
