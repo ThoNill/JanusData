@@ -33,9 +33,7 @@
 
 	</dependencies>
 
-	<!-- <parent> <groupId>thomas.nill</groupId> <artifactId>hauptPOM</artifactId> 
-		<version>1.0</version> <relativePath>../generell/maven/pom.xml</relativePath> 
-		</parent> -->
+	
 	<build>
 		<sourceDirectory>src/</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
