@@ -13,5 +13,5 @@ package org.janus.data;
  * 
  */
 public interface Configurable {
-	void configure(DataDescription description);
+    void configure(DataDescription description);
 }

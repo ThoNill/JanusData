@@ -1,5 +1,5 @@
 package org.janus.actions;
 
 public interface DataFormat {
-	String format(Object obj);
+    String format(Object obj);
 }

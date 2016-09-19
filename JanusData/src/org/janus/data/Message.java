@@ -7,5 +7,5 @@ package org.janus.data;
  * 
  */
 public interface Message {
-	String getMessage(DataContext ctx);
+    String getMessage(DataContext ctx);
 }

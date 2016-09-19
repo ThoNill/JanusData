@@ -1,5 +1,7 @@
 package org.janus.actions;
 
+import java.io.Serializable;
+
 import org.janus.data.Configurable;
 import org.janus.data.DataContext;
 
@@ -14,14 +16,14 @@ import org.janus.data.DataContext;
  * @see DataContext
  * 
  */
-public interface Action extends Configurable {
+public interface Action extends Configurable, Serializable {
 
-	/**
-	 * 
-	 * Execution of a action or the check of a rule
-	 * 
-	 * @param context
-	 */
-	void perform(DataContext context);
+    /**
+     * 
+     * Execution of a action or the check of a rule
+     * 
+     * @param context
+     */
+    void perform(DataContext context);
 
 }

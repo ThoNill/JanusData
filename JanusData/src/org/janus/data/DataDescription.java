@@ -1,5 +1,7 @@
 package org.janus.data;
 
+import java.io.Serializable;
+
 /**
  * Holt den Index eines Schlüsselnamens. Wenn der Schlüssel noch nicht existiert
  * wird das DataModel erweitert. Wenn ein DataModel fixiert ist, ist dies nicht
@@ -9,18 +11,18 @@ package org.janus.data;
  * 
  * @param name
  */
-public interface DataDescription {
+public interface DataDescription extends Serializable {
 
-	boolean existsHandleName(String name);
+    boolean existsHandleName(String name);
 
-	int getHandle(String name);
+    int getHandle(String name);
 
-	String getHandleName(int i);
+    String getHandleName(int i);
 
-	int getSize();
+    int getSize();
 
-	int createAnonymousHandle();
+    int createAnonymousHandle();
 
-	DataContext newContext();
+    DataContext newContext();
 
 }

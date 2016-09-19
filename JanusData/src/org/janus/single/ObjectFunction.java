@@ -3,5 +3,5 @@ package org.janus.single;
 import java.io.Serializable;
 
 public interface ObjectFunction {
-	Serializable tranform(Serializable obj);
+    Serializable tranform(Serializable obj);
 }

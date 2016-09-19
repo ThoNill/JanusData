@@ -6,5 +6,5 @@ import org.janus.data.DataContext;
 
 public interface ReadValue {
 
-	Serializable getObject(DataContext ctx);
+    Serializable getObject(DataContext ctx);
 }
