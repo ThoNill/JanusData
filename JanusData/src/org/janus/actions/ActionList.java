@@ -2,7 +2,6 @@ package org.janus.actions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List; import java.util.ArrayList;
 
 import org.janus.data.ConfigurableHelper;
 import org.janus.data.DataContext;

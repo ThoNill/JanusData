@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.apache.log4j.Logger;
-import org.janus.data.ClassFactory;
 import org.janus.data.DataContext;
 import org.janus.data.DataContextImpl;
 import org.janus.data.DataDescription;

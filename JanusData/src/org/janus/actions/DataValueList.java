@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List; import java.util.ArrayList;
 
 import org.janus.data.Configurable;
 import org.janus.data.ConfigurableHelper;
