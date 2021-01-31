@@ -15,7 +15,15 @@ import org.janus.helper.DebugAssistent;
  * 
  */
 public enum DefaultClassFactory implements ClassFactory {
-    FACTORY;
+	
+	FACTORY(false),
+	FACTORY_EXCEPTION(true);
+	
+	private boolean check;
+	
+	private DefaultClassFactory(boolean check) {
+		this.check = check;
+	}
 
     @Override
     @SuppressWarnings("rawtypes")
@@ -30,7 +38,9 @@ public enum DefaultClassFactory implements ClassFactory {
                 c = DefaultClassFactory.class.getClassLoader().loadClass(
                         classname);
             } catch (ClassNotFoundException e2) {
-                LOG.fatal("class [" + classname + "] not found", e2);
+                if (check) {
+                	LOG.fatal("class [" + classname + "] not found", e2);
+                }
             }
         }
         return c;
